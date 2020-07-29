@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Privacy Policy - Stay Home Lebanon - Directory of online businesses, ecommerce stores and delivery services in Lebanon." />
+    <title>Privacy Policy - Stay Home Lebanon  </title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/chosen.css' %}">
+    <link href="{% static 'css/style.css' %}"  rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">    
+    <link href="{% static 'css/webFont.css' %}"  rel="stylesheet">        
+    <link rel="icon" href="{% static 'img/flag-round-250.png' %}">
+  </head>
+  <body>
+  <!-- header -->
+    <div class="body-bg"></div>
+    <div class="container-fluid header-main remove-padding ">
+      <div class="container head-top">
+        <ul class="main-links">
+          <li><a href="/eabout.html" class="change-lang flat-hover">About</a></li>
+          <li><a href="/econtact.html" class="change-lang flat-hover">Contact Us </a></li>
+		    </ul>
+        <ul>
+          <li>
+            <a href="/index.html" class="change-lang flat-hover">الموقع العربي<img src="{% static 'img/le.jpg' %}" alt="Stay Home Lebanon">
+            </a>
+          </li>
+          <li>
+            <a class="icon-1facebook flat-hover color-hover" href="#" rel="nofollow" target="_blank">
+            </a>
+          </li>
+         </ul>
+      </div>
+      <div class="container-fluid head-main-bot">
+        <div class="container remove-padding">
+          <div class="col-md-2 col-sm-3">
+            <a href="/en.html"><img src="{% static 'img/lebanon.png' %}" alt="Stay Home Lebanon Directory of online businesses, ecommerce stores and delivery services in Lebanon."></a>
+          </div>
+          <span class="icon-5search visible-xs seach-mob-btn"></span>
+          <div class="col-md-6 col-sm-6">
+            <form method="POST" action="!">
+              <input type="text" name="search" placeholder="What do you want?">
+              <button type="submit" name="submit" value="submit"><span class="icon-5search"></span></button>
+            </form>
+          </div>
+          <div class="col-md-4 col-sm-3">
+            <a href="/eadd.html">Add a Service</a> 
+            <div class="cate-drop dropdown">
+              <a href="#" class="cat-drop-btn" data-toggle="dropdown">Sections</a>
+              <ul class="dropdown-menu">
+                {% for item in category %}
+                  <li><a href="{% url 'category' item.pk %}">{{item.category}}</a></li>
+                {% endfor %}
+                <!--<li><a href="eproducts1.html">Food and Beverage</a></li>
+                <li><a href="#">Grocery</a></li>
+                <li><a href="#">Health and Pharmacy</a></li>
+                <li><a href="#">Education and Training</a></li>
+                <li><a href="#">Pets Related</a></li>
+                <li><a href="#">Cleaning and Services</a></li>
+                <li><a href="#">Clothes and Shoes</a></li>
+                <li><a href="#">Books and Stationery</a></li>
+                <li><a href="#">Toys and Kids Supplies</a></li>
+                <li><a href="#">Electronics and Accessories</a></li>
+                <li><a href="#">Home Appliance</a></li>
+                <li><a href="#">Furniture and Decor</a></li>
+                <li><a href="#">Financial Services</a></li>
+                <li><a href="#">Gifts and Flowers</a></li>
+                <li><a href="#">Business Services</a></li>
+                <li><a href="#">Moving and Delivery</a></li>
+                <li><a href="#">Miscellaneous Services</a></li>
+                <li><a href="#">Entertainment</a></li>
+                <li><a href="#">Miscellaneous Shopping</a></li>
+                <li><a href="#">Taxi and Transportation</a></li>-->
+              </ul>
+            </div>
+          </div>
+        </div>
+     </div>
+    </div>
+<!-- end header  -->
+
+<!-- main -->
+    <div class="container-fluid remove-padding all-body  wow zoomInRight">
+      <div class="container remove-padding form-main">
+        <h1 class="col-xs-12">Contact Us </h1>
+        <div class="col-md-10 col-md-offset-1 col-xs-12 col-sm-12 remove-padding">
+          <p style="margin: 10px">
+            If you are inquiring about when your listing will appear or why it hasn't appeared at all, please note that we receive an enormous number of submissions every day so the review process takes some time. Thank you. <br/>
+          </p>
+          <form action="message" method="post">
+            {% csrf_token %}
+            <div class="col-xs-12 input-item">
+              <p>Name *</p>
+              <input type="text" name="name" placeholder="Your name" required>
+            </div>
+            <div class="col-xs-12 input-item">
+              <p>Mobile Number</p>
+              <input name="mobile" type="tel"  class="ltr-input"  placeholder="+201000000000">
+            </div>
+            <div class="col-xs-12 input-item">
+              <p>Email *</p>
+              <input name="email"  type="email"  class="ltr-input"  placeholder="folan@makan.com" required>
+            </div>
+            <div class="col-xs-12 input-item">
+              <p>Message *</p>
+              <textarea name="message" required placeholder="Message content..."></textarea>
+            </div>
+            <div class="col-xs-12">
+              <input type="submit" class="form-btn" name="submit" value="Contact Us">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+<!-- end main -->
+<!--Footer -->
+    <div class="container-fluid footer-main remove-padding">
+      <div class="container remove-padding">
+<!-- 
+        <div class="col-md-5"> 
+          <img src="img/lebanon.png">
+        </div>
+
+ -->        
+        <div class="col-md-3 col-md-offset-3 col-xs-offset-2"> 
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="/en.html">Home</a> </li>
+            <li><a href="/eadd.html">Add a Service</a> </li>
+            <li><a href="/eabout.html">About</a> </li>
+            <li><a href="/econtact.html">Contact Us </a> </li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-xs-6 col-xs-offset-2 ">
+          <h3>Share the Initiative:</h3>
+          <ul>
+            <li><a href="#" class="icon-2facebook flat-hover" target="_blank" rel="nofollow"></a> </li>
+            <li><a href="#" class="icon-12whatsapp flat-hover"></a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $(".body-bg").click(function(){
+      $(".header-main .head-main-bot form").removeClass("form-open");
+      $('.body-bg').removeClass('body-overlay');
+      });
+      $(".seach-mob-btn").click(function(){
+      $(".header-main .head-main-bot form").toggleClass("form-open");
+      $(".body-bg").addClass('body-overlay')
+      });
+	   });
+    </script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script>new WOW().init();</script>
+    <script>
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+
+    </script>
+  </body>
+</html>

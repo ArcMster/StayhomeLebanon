@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar">
+  {% load static %}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="سياسة الخصوصية - Stay Home Lebanon - دليل خدمات و شركات و منتجات التوصيل و أون لاين في مصر." />
+    <title>سياسة الخصوصية - Stay Home Lebanon </title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-rtl.css' %}" rel="stylesheet">    
+    <link rel="stylesheet" href="{% static 'css/chosen.css' %}">
+    <link href="{% static 'css/style-rtl.css' %}"  rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">        
+    <link href="{% static 'css/webFont.css' %}"  rel="stylesheet">        
+    <link rel="icon" href="{% static 'img/flag-round-250.png' %}">
+  </head>
+  <body>
+    <!-- header -->
+    <div class="body-bg"></div>
+    <div class="container-fluid header-main remove-padding ">
+      <div class="container head-top">
+        <ul class="main-links">
+          <li><a href="/about.html" class="change-lang flat-hover">عن المبادرة</a></li>
+          <li><a href="/contact.html" class="change-lang flat-hover">اتصل بنا</a></li>
+  		  </ul>
+        <ul>
+          <li>
+            <a href="/en.html" class="change-lang flat-hover">English Version<img src="{% static 'img/us.png' %}" alt="Stay Home Lebanon">
+            </a>
+          </li>
+          <li>
+            <a class="icon-1facebook flat-hover color-hover" href="#" rel="nofollow" target="_blank"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="container-fluid head-main-bot">
+        <div class="container remove-padding">
+          <div class="col-md-2 col-sm-3">
+            <a href="/index.html"><img src="{% static 'img/lebanon.png' %}" alt="Stay Home Lebanon دليل خدمات و شركات و منتجات التوصيل و أون لاين في مصر."></a>
+          </div>
+          <span class="icon-5search visible-xs seach-mob-btn" ></span>
+          <div class="col-md-6 col-sm-6">
+            <form method="POST" action="!">
+              <input type="text" name="search" placeholder="ما الذي تريده؟">
+                <button type="submit" name="submit" value="submit"><span class="icon-5search"></span></button>
+            </form>
+          </div>
+          <div class="col-md-4 col-sm-3">
+            <a href="/add.html">أضف خدمة جديدة</a> 
+            <div class="cate-drop dropdown" >
+              <a href="#" class="cat-drop-btn" data-toggle="dropdown">الأقسام</a>
+              <ul class="dropdown-menu">
+                {% for item in category %}
+                  <li><a href="{% url 'categoryar' item.pk %}">{{item.category_in_Arabic}}</a></li>
+                {% endfor %}
+                <!--<li><a href="products1.html">مأكولات ومشروبات</a></li>
+                <li><a href="#">بقالة ومواد غذائية</a></li>
+                <li><a href="#">صيدليات وخدمات صحية</a></li>
+                <li><a href="#">تعليم وتدريب</a></li>
+                <li><a href="#">حيوانات أليفة</a></li>
+                <li><a href="#">تنظيف وصيانة</a></li>
+                <li><a href="#">ملابس وأحذية</a></li>
+                <li><a href="#">كتب وأدوات مكتبية</a></li>
+                <li><a href="#">ألعاب ومستلزمات أطفال</a></li>
+                <li><a href="#">إلكترونيات وإكسسواراتها</a></li>
+                <li><a href="#">أجهزة منزلية</a></li>
+                <li><a href="#">أثاث وديكورات</a></li>
+                <li><a href="#">بنوك وخدمات مالية</a></li>
+                <li><a href="#">زهور وهدايا</a></li>
+                <li><a href="#">خدمات الأعمال</a></li>
+                <li><a href="#">نقل وتوصيل</a></li>
+                <li><a href="#">خدمات متنوعة</a></li>
+                <li><a href="#">ترفيه</a></li>
+                <li><a href="#">تسوق منتجات متنوعة</a></li>
+                <li><a href="#">تاكسي ومواصلات</a></li>-->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- end header  -->
+  <!-- main -->
+    <div class="container-fluid remove-padding all-body wow zoomInLeft">
+      <div class="container remove-padding form-main">
+        <h1 class="col-xs-12">اتصل بنا</h1>
+        <div class="col-md-10 col-md-offset-1 col-xs-12 col-sm-12 remove-padding">
+          <p style="margin: 10px">إذا كان تواصلك بخصوص عدم ظهور خدمة قمت بإضافتها فنرجو أن تعطي الأمر بعض الوقت نظرا لكثرة الإضافات اليومية التي نحاول التعامل معها ومراجعتها أولا بأول. <br /></p>
+          <form action="messagear" method="post">
+            {% csrf_token %}
+            <div class="col-xs-12 input-item">
+              <p>الاسم *</p>
+              <input type="text" name="name" placeholder="الاسم الكريم" required>
+            </div>
+            <div class="col-xs-12 input-item">
+              <p>رقم التليفون</p>
+              <input name="mobile" type="tel"  class="ltr-input"  placeholder="+201000000000">
+            </div>
+            <div class="col-xs-12 input-item">
+                 <p>الإيميل *</p>
+                 <input name="email"  type="email"  class="ltr-input"  placeholder="folan@makan.com" required>
+            </div>
+            <div class="col-xs-12 input-item">
+               <p>الرسالة *</p>
+               <textarea name="message" required placeholder="محتوى الرسالة..."></textarea>
+            </div>
+            <div class="col-xs-12"><input type="submit" class="form-btn" name="submit" value="اتصل بنا"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  <!-- end main -->
+  <!-- // footer -->
+    <div class="container-fluid footer-main remove-padding">
+      <div class="container remove-padding">
+<!-- 
+        <div class="col-md-5"> 
+          <img src="img/lebanon.png">
+        </div>
+ -->
+        
+        <div class="col-md-3 col-md-offset-3 col-xs-offset-2"> 
+          <h3>الصفحات</h3>
+          <ul>
+            <li><a href="/index.html">الرئيسية</a> </li>
+            <li><a href="/add.html">أضف خدمة جديدة</a> </li>
+            <li><a href="/about.html">عن المبادرة</a> </li>
+            <li><a href="/contact.html">اتصل بنا</a> </li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-xs-6 col-xs-offset-2">
+          <h3> ساهم بنشر المبادرة:</h3>
+          <ul>
+            <li><a href="#" class="icon-2facebook flat-hover" target="_blank" rel="nofollow"></a> </li>
+            <li><a href="#" class="icon-12whatsapp flat-hover"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(".body-bg").click(function(){
+        $(".header-main .head-main-bot form").removeClass("form-open");
+        $('.body-bg').removeClass('body-overlay');
+        });
+        $(".seach-mob-btn").click(function(){
+        $(".header-main .head-main-bot form").toggleClass("form-open");
+        $(".body-bg").addClass('body-overlay')
+        });
+      });
+    </script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script>new WOW().init();</script>
+    <script>
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+
+    </script>
+  </body>
+</html>

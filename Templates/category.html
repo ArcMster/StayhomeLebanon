@@ -1,0 +1,13 @@
+<h1>{{category}}</h1>
+<br>
+<br>
+{% for i in service_list %}
+<a href="{% url 'description' i.pk %}">
+<img src="{{i.thumbnail.url}}" height="200" width="200">
+</a>
+<br>
+{{i.name}}
+<br>
+{{i.description|safe}}
+
+{% endfor %}

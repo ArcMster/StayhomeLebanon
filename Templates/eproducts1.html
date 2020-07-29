@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Food and Beverage - Stay Home Lebanon - Directory of online businesses, ecommerce stores and delivery services in Lebanon." />
+    <title>Food and Beverage - Stay Home Lebanon</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/chosen.css' %}">
+    <link href="{% static 'css/style.css' %}"  rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">    
+    <link href="{% static 'css/webFont.css' %}"  rel="stylesheet">        
+    <link rel="icon" href="{% static 'img/flag-round-250.png' %}">
+  </head>
+  <body>
+
+  <!-- header -->
+    <div class="body-bg"></div>
+    <div class="container-fluid header-main remove-padding ">
+      <div class="container head-top">
+        <ul class="main-links">
+          <li><a href="/eabout.html" class="change-lang flat-hover">About</a></li>
+          <li><a href="/econtact.html" class="change-lang flat-hover">Contact Us </a></li>
+        </ul>
+        <ul>
+          <li>
+            <a href="/index.html" class="change-lang flat-hover">الموقع العربي<img src="{% static 'img/le.jpg' %}" alt="Stay Home Lebanon"></a>
+          </li>
+          <li><a class="icon-1facebook flat-hover color-hover" href="#" rel="nofollow" target="_blank"></a></li>
+        </ul>
+       </div>
+       <div class="container-fluid head-main-bot">
+          <div class="container remove-padding">
+            <div class="col-md-2 col-sm-3">
+               <a href="/en.html"><img src="{% static 'img/lebanon.png' %}" alt="."></a>
+            </div>
+            <span class="icon-5search visible-xs seach-mob-btn"></span>
+            <div class="col-md-6 col-sm-6">
+              <form method="POST" action="!">
+                <input type="text" name="search" placeholder="What do you want?">
+                <button type="submit" name="submit" value="submit"><span class="icon-5search"></span></button>
+              </form>
+            </div>
+            <div class="col-md-4 col-sm-3">
+              <a href="/eadd.html">Add a Service</a> 
+              <div class="cate-drop dropdown">
+                <a href="#" class="cat-drop-btn" data-toggle="dropdown">Sections</a>
+                <ul class="dropdown-menu">
+                  {% for item in category_list %}
+                  <li><a href="{% url 'category' item.pk %}">{{item.category}}</a></li>
+                  {% endfor %}
+                  <!--<li><a href="eproducts1.html">Food and Beverage</a></li>
+                  <li><a href="#">Grocery</a></li>
+                  <li><a href="#">Health and Pharmacy</a></li>
+                  <li><a href="#">Education and Training</a></li>
+                  <li><a href="#">Pets Related</a></li>
+                  <li><a href="#">Cleaning and Services</a></li>
+                  <li><a href="#">Clothes and Shoes</a></li>
+                  <li><a href="#">Books and Stationery</a></li>
+                  <li><a href="#">Toys and Kids Supplies</a></li>
+                  <li><a href="#">Electronics and Accessories</a></li>
+                  <li><a href="#">Home Appliance</a></li>
+                  <li><a href="#">Furniture and Decor</a></li>
+                  <li><a href="#">Financial Services</a></li>
+                  <li><a href="#">Gifts and Flowers</a></li>
+                  <li><a href="#">Business Services</a></li>
+                  <li><a href="#">Moving and Delivery</a></li>
+                  <li><a href="#">Miscellaneous Services</a></li>
+                  <li><a href="#">Entertainment</a></li>
+                  <li><a href="#">Miscellaneous Shopping</a></li>
+                  <li><a href="#">Taxi and Transportation</a></li>-->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- end header  -->
+
+<!-- main -->
+    <div class="container-fluid remove-padding all-body wow slideInUp">
+      <div class="container remove-padding gategory-main">
+        <h1 class="col-xs-12"><img src="{{category.thumbnail.url}}">{{category}}</h1>
+        {% for item in service_list %}
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="{% url 'description' item.pk %}"><img src="{{item.logo}}" alt=""></a>
+              <h3><a href="{% url 'description' item.pk %}">{{item.service_name}}</a></h3>
+              <p>{{item.service_details_English}}</p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>Website</a>
+                </li>
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-2facebook"></span>Facebook</a>
+                </li>
+                <li><a href="#" class="insta-btn" target="_blank" rel="nofollow" >
+                <span class="icon-3instagram"></span>Instagram</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <!--{% for item in service_list %}
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="{% url 'description' item.pk %}"><img src="{{item.thumbnail.url}}" alt=""></a>
+              <h3><a href="eget19.html">{{item.name}}</a></h3>
+              <p>{{item.description}}</p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>Website</a>
+                </li>
+                <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-7and"></span>Android</a>
+                </li>
+                <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-6apple"></span>IPhone</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="#">مطعم ماما منى</a></h3>
+              <p>مطعم ماما منى للاكل البيتى </p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>Website</a>
+                </li>
+                <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-12whatsapp"></span>Whatsapp</a>
+                </li>
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-2facebook"></span>Facebook</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="eget95.html">شيكو اكل بيتى - الاسكندرية</a></h3>
+              <p>مطبخ اكل بيتى يقدم كل اصناف الطعام بأيدى خبيرة نصلك لباب البيت  داخل الأسكندرية </p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="" class="whats-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-12whatsapp"></span>Whatsapp</a>
+                </li>
+                <li><a href="" class="face-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-2facebook"></span>Facebook</a>
+                </li>
+                <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-11phone"></span>Phone</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="#">Mama Food</a></h3>
+              <p>Mama food is a platform to share healthy and high quality meals cooked by housewives for customer in Mienya </p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                <span class="icon-12whatsapp"></span>Whatsapp</a>
+                </li>
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                <span class="icon-2facebook"></span>Facebook</a>
+                </li>
+                <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-11phone"></span>Phone</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="#">Mama Food</a></h3>
+              <p>Mama food is a platform to share healthy and high quality meals cooked by housewives for customer in Mienya </p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                <span class="icon-12whatsapp"></span>Whatsapp</a>
+                </li>
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                <span class="icon-2facebook"></span>Facebook</a>
+                </li>
+                <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-11phone"></span>Phone</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="#">Mama Food</a></h3>
+              <p>Mama food is a platform to share healthy and high quality meals cooked by housewives for customer in Mienya </p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                <span class="icon-12whatsapp"></span>Whatsapp</a>
+                </li>
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                <span class="icon-2facebook"></span>Facebook</a>
+                </li>
+                <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-11phone"></span>Phone</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt="">
+              </a>
+              <h3><a href="#">Ava Tech</a></h3>
+              <p>يمكنك طلب الاوردر الخاص بك من اي نوع مطعم كان اون لاين دون اتصال وبنفس سعر المطعم 
+              </p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>Website</a>
+                </li>
+                  <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-7and"></span>Android</a>
+                </li>
+                <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-6apple"></span>IPhone</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="#">المنيوز elmenus</a></h3>
+              <p>أوردر أكلك أون لاين وشوف منيوهات المطاعم.</p>
+            </div>
+          <div class="col-xs-12 remove-padding">
+            <ul>
+              <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                <span class="icon-8world"></span>Website</a>
+              </li>
+              <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+              <span class="icon-7and"></span>Android</a>
+              </li>
+              <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+              <span class="icon-6apple"></span>IPhone</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-12 col-sm-12">
+         <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="#">360Degree</a></h3>
+              <p>First App in Lebanon that customize your healthy diet lifestyle on a medical basis with a friendly and easy user experience. Download it now!</p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                <span class="icon-8world"></span>Website</a>
+                </li>
+                <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+                <span class="icon-7and"></span>Android</a>
+                </li>
+                <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-12whatsapp"></span>Whatsapp</a>
+                </li>      
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+           <div class="col-xs-12 remove-padding gategory-item">
+              <div class="col-xs-12 remove-padding gategory-top">
+                <a href="#"><img src="img/" alt=""></a>
+                <h3><a href="#">McDonald's</a></h3>
+                <p>McDonald's delivery</p>
+              </div>
+              <div class="col-xs-12 remove-padding">
+                <ul>
+                  <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                    <span class="icon-8world"></span>Website</a>
+                  </li>
+                  <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+                    <span class="icon-7and"></span>Android</a>
+                  </li>
+                  <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+                    <span class="icon-6apple"></span>IPhone</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-xs-12 col-sm-12">
+            <div class="col-xs-12 remove-padding gategory-item">
+              <div class="col-xs-12 remove-padding gategory-top">
+                <a href="#"><img src="img/" alt="">
+                </a>
+                <h3><a href="#">مطعم جنابو - مندي ومشوي</a></h3>
+                <p>أحنا في مطعم جنابو متخصصين في عمل المندي والمشوي والكبسة البرياني انتاج يومي والتسوية الصحية ونحن نقوم بتوريد وتجهيزالحفلات والعزائم وايضا بعمل التسويات المختلفه لجميع أنواع الفراخ واللحوم مع الأرز والسلطات الطازجة المتنوعه. 
+                  ارقام التليفون للطلبات والتواصل : 01028792014 - 0115443663 - 01554619912
+                </p>
+              </div>
+              <div class="col-xs-12 remove-padding">
+                 <ul>
+                    <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                    <span class="icon-2facebook"></span>Facebook</a>
+                    </li>
+                    <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+                    <span class="icon-11phone"></span>Phone</a>
+                  </li>
+                 </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 col-xs-12 col-sm-12">
+             <div class="col-xs-12 remove-padding gategory-item">
+                <div class="col-xs-12 remove-padding gategory-top">
+                  <a href="#"><img src="img/" alt=""></a>
+                  <h3><a href="#">Crazy Tuna</a></h3>
+                  <p>نقدم لحم التونة في اشكال مختلفة....ني...متبل جاهز للشوي.... مستوي علي البخار جاهز للاكل 
+                  التونة من مصر غير مستوردة... ومغلقة بتقنية الفاكيوم</p>
+                </div>
+                <div class="col-xs-12 remove-padding">
+                  <ul>
+                    <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                    <span class="icon-8world"></span>Website</a>
+                    </li>
+                    <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                      <span class="icon-12whatsapp"></span>Whatsapp</a>
+                    </li>
+                    <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                    <span class="icon-2facebook"></span>Facebook</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-xs-12 col-sm-12">
+              <div class="col-xs-12 remove-padding gategory-item">
+                <div class="col-xs-12 remove-padding gategory-top">
+                  <a href="#"><img src="img/" alt="تجارة وتوريد ">
+                  </a>
+                  <h3><a href="#">شركة R.M لتوريد المواد الغذائية</a></h3>
+                  <p>تجارة وتوريد المواد الغذائية 
+                  دواجن 
+                  بط 
+                  رومي 
+                  سمان 
+                  حمام 
+                  عسل نحل 
+            بيض </p>
+                </div>
+                <div class="col-xs-12 remove-padding">
+                   <ul>
+                      <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                        <span class="icon-8world"></span>Website</a>
+                      </li>
+                      <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                        <span class="icon-12whatsapp"></span>Whatsapp</a>
+                      </li>
+                      <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                        <span class="icon-2facebook"></span>Facebook</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4 col-xs-12 col-sm-12">
+                 <div class="col-xs-12 remove-padding gategory-item">
+                    <div class="col-xs-12 remove-padding gategory-top">
+                      <a href="#"><img src="img/" alt="أكل مغذي"></a>
+                      <h3><a href="#">V-licious</a></h3>
+                      <p>أكل مغذي</p>
+                    </div>
+                    <div class="col-xs-12 remove-padding">
+                      <ul>
+                        <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                          <span class="icon-8world"></span>Website</a>
+                        </li>
+                        <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                          <span class="icon-12whatsapp"></span>Whatsapp</a>
+                        </li>
+                        <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                          <span class="icon-2facebook"></span>Facebook</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-xs-12 col-sm-12">
+                  <div class="col-xs-12 remove-padding gategory-item">
+                    <div class="col-xs-12 remove-padding gategory-top">
+                      <a href="#"><img src="img/" alt=""></a>
+                      <h3><a href="#">شهبندر للدواجن الطازجة</a></h3>
+                      <p>بيع جميع انواع الدواجن الفريش 
+                      والتوصيل لجميع مناطق الاسكندرية عدا (العامرية - برج العرب - العجمي )
+                      </p>
+                    </div>
+                    <div class="col-xs-12 remove-padding">
+                      <ul>
+                        <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                          <span class="icon-12whatsapp"></span>Whatsapp</a>
+                        </li>
+                        <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-2facebook"></span>Facebook</a>
+                        </li>
+                        <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-11phone"></span>Phone</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-xs-12 col-sm-12">
+                  <div class="col-xs-12 remove-padding gategory-item">
+                    <div class="col-xs-12 remove-padding gategory-top">
+                      <a href="#"><img src="img/" alt=""></a>
+                      <h3><a href="eget495.html">Bites</a></h3>
+                      <p>اطلب كل احتياجاتك من بقالة ومواد غذائية ومطاعم وإنت مطمن </p>
+                    </div>
+                    <div class="col-xs-12 remove-padding">
+                      <ul>
+                        <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                          <span class="icon-8world"></span>Website</a>
+                        </li>
+                        <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+                          <span class="icon-7and"></span>Android</a>
+                        </li>
+                        <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+                          <span class="icon-6apple"></span>IPhone</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-xs-12 col-sm-12">
+                  <div class="col-xs-12 remove-padding gategory-item">
+                    <div class="col-xs-12 remove-padding gategory-top">
+                      <a href="#"><img src="img/" alt=""></a>
+                      <h3><a href="#">ChickInn</a></h3>
+                      <p>Chickinn serves a selection of best grilled chicken meals, delivering across Tagammoa & Heliopolis</p>
+                    </div>
+                    <div class="col-xs-12 remove-padding">
+                      <ul>
+                        <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                          <span class="icon-2facebook"></span>Facebook</a>
+                        </li>
+                        <li><a href="#" class="insta-btn" target="_blank" rel="nofollow" >
+                          <span class="icon-3instagram"></span>Instagram</a>
+                        </li>
+                        <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+                          <span class="icon-11phone"></span>Phone</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-xs-12 col-sm-12">
+                  <div class="col-xs-12 remove-padding gategory-item">
+                      <div class="col-xs-12 remove-padding gategory-top">
+                          <a href="#"><img src="img/" alt=""></a>
+                          <h3><a href="#">Marionette Image & Packing</a></h3>
+                          <p>paper packing for restaurant and cafe</p>
+                      </div>
+                      <div class="col-xs-12 remove-padding">
+                        <ul>
+                          <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-8world"></span>Website</a>
+                          </li>
+                          <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-12whatsapp"></span>Whatsapp</a>
+                          </li>
+                          <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-2facebook"></span>Facebook</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12 col-sm-12">
+                    <div class="col-xs-12 remove-padding gategory-item">
+                      <div class="col-xs-12 remove-padding gategory-top">
+                        <a href="#"><img src="img/" alt=""></a>
+                        <h3><a href="eget526.html">Tropetka</a></h3>
+                        <p>Eastern qualified food 
+                          All the meat that we use my country is prepared and prepared inside our kitchens</p>
+                      </div>
+                      <div class="col-xs-12 remove-padding">
+                        <ul>
+                          <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-12whatsapp"></span>Whatsapp</a>
+                          </li>
+                          <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-2facebook"></span>Facebook</a>
+                          </li>
+                          <li><a href="#" class="insta-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-3instagram"></span>Instagram</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12 col-sm-12">
+                    <div class="col-xs-12 remove-padding gategory-item">
+                      <div class="col-xs-12 remove-padding gategory-top">
+                        <a href="#"><img src="img/" alt=""></a>
+                        <h3><a href="#">Akelni</a></h3>
+                        <p>An online food ordering platform, delivering from more than 1800 restaurants and grocery shops in 11 cities in Lebanon, with daily offers and discounts.</p>
+                      </div>
+                      <div class="col-xs-12 remove-padding">
+                        <ul>
+                          <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-8world"></span>Website</a>
+                          </li>
+                          <li><a href="#" target="_blank" rel="nofollow" >
+                            <span class="icon-7and"></span>Android</a>
+                          </li>
+                          <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-6apple"></span>IPhone</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12 col-sm-12">
+                    <div class="col-xs-12 remove-padding gategory-item">
+                      <div class="col-xs-12 remove-padding gategory-top">
+                        <a href="#"><img src="img/" alt=""></a>
+                        <h3><a href="#">Uber eats</a></h3>
+                        <p>Meals come directly from the restaurants
+
+                       Do you feel hungry?  Get the food you want, from the restaurants you love, with the fastest Uber speed.
+
+                       Eat your favorite food anywhere, anytime.  Enjoy local dishes you crave with the push of a button.
+
+                       Browse local restaurants and favorite fast foods with ease.  Or find a specific restaurant by searching for it within the application.  You can choose pizza, burritos, burgers, or sushi.  If you crave any of these foods, try Uber Eats.
+
+                       When you're ready to order, you'll be able to see your delivery address, estimated delivery time, and total price including taxes and delivery charges.  Click to pay easily with Uber account or add a credit card.  Track your order moment by moment on his way to you.
+
+                       Uber Eats is currently available in a number of cities and metropolitan areas, such as Abu Dhabi, Adelaide, Amsterdam, Atlanta, Auckland, Austin, Baltimore, Bogota, Brisbane, Brussels, Cape Town, Chicago, Dallas, Denver, Dubai, Hong Kong, Johannesburg, Glasgow, Liverpool, London, Los Angeles, Madrid, Melbourne, Mexico City, Miami, Milan, Manchester, Nashville  Ottawa, Paris, Philadelphia, Rio de Janeiro, San Diego, San Francisco, Sao Paulo, Seattle, Stockholm, Sydney, Taipei, Tokyo, Toronto, Vienna, Warsaw and Washington, DC.
+
+                       Uber Eats helps you find food delivery service around the world.  You can order food delivery service in Australia, Belgium, Brazil, Canada, Colombia, France, Japan, Hen, Mexico, New Zealand, Poland, Russia, South Africa, Spain, Taiwan, Thailand, UAE, UK, USA, etc.
+
+                       Is the service not available in your city yet?  We hope to introduce it to you soon?  Click on https://about.UberEats.com/cities/ to see a current list of all cities where we serve.</p>
+                      </div>
+                      <div class="col-xs-12 remove-padding">
+                        <ul>
+                          <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-8world"></span>Website</a>
+                          </li>
+                          <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-7and"></span>Android</a>
+                          </li>
+                            <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-6apple"></span>IPhone</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4 col-xs-12 col-sm-12">
+                    <div class="col-xs-12 remove-padding gategory-item">
+                      <div class="col-xs-12 remove-padding gategory-top">
+                        <a href="#"><img src="img/" alt=""></a>
+                        <h3><a href="#">Kaffeine</a></h3>
+                        <p>A specialty coffee house serving a wide variety of gourmet coffee
+                        and Dessert internationally renowned sweet delight.</p>
+                      </div>
+                      <div class="col-xs-12 remove-padding">
+                        <ul>
+                          <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                          <span class="icon-12whatsapp"></span>Whatsapp</a>
+                          </li>
+                            <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-2facebook"></span>Facebook</a>
+                          </li>
+                          <li><a href="#" class="insta-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-3instagram"></span>Instagram</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12 col-sm-12">
+                    <div class="col-xs-12 remove-padding gategory-item">
+                      <div class="col-xs-12 remove-padding gategory-top">
+                        <a href="#"><img src="img/" alt=""></a>
+                        <h3><a href="eget696.html">Baklava Ottoman desserts</a></h3>
+                        <p>Ottoman desserts</p>
+                      </div>
+                      <div class="col-xs-12 remove-padding">
+                        <ul>
+                          <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                          <span class="icon-2facebook"></span>Facebook</a>
+                          </li>
+                          <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-11phone"></span>Phone</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12 col-sm-12">
+                    <div class="col-xs-12 remove-padding gategory-item">
+                      <div class="col-xs-12 remove-padding gategory-top">
+                        <a href="#"><img src="img/" alt=""></a>
+                        <h3><a href="#">Just Kebda</a></h3>
+                        <p>Making and serving meat, chicken and fish meals
+                        </p>
+                      </div>
+                      <div class="col-xs-12 remove-padding">
+                        <ul>
+                          <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-8world"></span>Website</a>
+                          </li>
+                          <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-12whatsapp"></span>Whatsapp</a>
+                          </li>
+                          <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-2facebook"></span>Facebook</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12 col-sm-12">
+                    <div class="col-xs-12 remove-padding gategory-item">
+                      <div class="col-xs-12 remove-padding gategory-top">
+                        <a href="#"><img src="img/" alt=""></a>
+                        <h3><a href="#">أسماك المحروسة</a></h3>
+                        <p>مطعم وسوق سمك متكامل متخصص في بيع الأسماك الطازجة عالية الجودة من البحر الأحمر وقناة السويس والبحر الأبيض المتوسط بالاضافة الي بعض الأسماك المستوردة مثل سمك السالمون، متواجدون في محافظة السويس ونقدم خدمة توصيل الطلبات داخل السويس وخارجها.</p>
+                      </div>
+                      <div class="col-xs-12 remove-padding">
+                        <ul>
+                          <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-12whatsapp"></span>Whatsapp</a>
+                          </li>
+                          <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-2facebook"></span>Facebook</a>
+                          </li>
+                          <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-11phone"></span>Phone</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12 col-sm-12">
+                    <div class="col-xs-12 remove-padding gategory-item">
+                      <div class="col-xs-12 remove-padding gategory-top">
+                        <a href="#"><img src="img/" alt=""></a>
+                        <h3><a href="#">Tasa and Gebna</a></h3>
+                        <p>أكل شرقي.. بطعم شبابي..
+                        ملوك الجبنة </p>
+                      </div>
+                      <div class="col-xs-12 remove-padding">
+                        <ul>
+                          <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-8world"></span>Website</a>
+                          </li>
+                          <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-2facebook"></span>Facebook</a>
+                          </li>
+                          <li><a href="#" class="insta-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-3instagram"></span>Instagram</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 col-xs-12 col-sm-12">
+                    <div class="col-xs-12 remove-padding gategory-item">
+                      <div class="col-xs-12 remove-padding gategory-top">
+                        <a href="#"><img src="img/" alt=""></a>
+                        <h3><a href="#">StayFit Lebanon</a></h3>
+                        <p>StayFit is here to help make your new healthy lifestyle easier, more sustainable and above all, more fun! Not to mention, make it easy for you to enjoy delicious and nutritious food every day of the week.</p>
+                      </div>
+                      <div class="col-xs-12 remove-padding">
+                        <ul>
+                          <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-8world"></span>Website</a>
+                          </li>
+                          <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+                          <span class="icon-7and"></span>Android</a>
+                          </li>
+                          <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+                            <span class="icon-6apple"></span>IPhone</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>-->
+                </div>
+              </div>
+<!-- end main -->
+
+<!-- Footer -->
+
+    <div class="container-fluid footer-main remove-padding">
+      <div class="container remove-padding">
+<!-- 
+        <div class="col-md-5"> 
+          <img src="img/lebanon.png">
+        </div>
+ -->
+
+        <div class="col-md-3 col-md-offset-3 col-xs-offset-2"> 
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="/en.html">Home</a> </li>
+            <li><a href="/eadd.html">Add a Service</a> </li>
+            <li><a href="/eabout.html">About</a> </li>          
+            <li><a href="/econtact.html">Contact Us </a> </li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 col-xs-6 col-xs-offset-2">
+           <h3>
+           Share the Initiative:</h3>
+           <ul>
+              <li><a href="#" class="icon-2facebook flat-hover" target="_blank" rel="nofollow"></a> </li>
+              <li><a href="#" class="icon-12whatsapp flat-hover"></a> </li>
+
+           </ul>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $(".body-bg").click(function(){
+      $(".header-main .head-main-bot form").removeClass("form-open");
+      $('.body-bg').removeClass('body-overlay');
+      });
+      $(".seach-mob-btn").click(function(){
+      $(".header-main .head-main-bot form").toggleClass("form-open");
+      $(".body-bg").addClass('body-overlay')
+      });
+    	});
+    </script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script>new WOW().init();</script>
+    <script>
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+<h1 style="text-align: center;">
+    Hello world
+</h1>
+
+<h3 style="text-align: center;">
+    {% for i in category %}
+        <a href="{% url 'category' i.pk %}"><img src="{{i.thumbnail.url}}"></a>
+        
+        <br>
+        {{i.category}}
+        <br>
+    {% endfor %}
+    <br>
+    <h1>
+        
+    </h1>
+</h3>

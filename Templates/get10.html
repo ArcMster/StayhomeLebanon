@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="مم Mumm - Stay Home Lebanon - دليل خدمات و شركات و منتجات التوصيل و أون لاين في مصر." />
+    <title>مم Mumm - Stay Home Lebanon </title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-rtl.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/chosen.css' %}">
+    <link href="{% static 'css/style-rtl.css' %}" rel="stylesheet">        
+    <link href="{% static 'css/webFont.css' %}" rel="stylesheet">        
+    <link rel="icon" href="{% static 'img/flag-round-250.png' %}">
+  </head>
+  <body>
+  <!-- header -->
+  <div class="body-bg"></div>
+  <div class="container-fluid header-main remove-padding ">
+    <div class="container head-top">
+      <ul class="main-links">
+        <li><a href="/about.html" class="change-lang flat-hover">عن المبادرة</a></li>
+        <li><a href="/contact.html" class="change-lang flat-hover">اتصل بنا</a></li>
+      </ul>
+      <ul> 
+        <li>
+          <a href="/en.html" class="change-lang flat-hover">English Version
+            <img src="{% static 'img/us.png' %}" alt="Stay Home Lebanon">
+          </a>
+        </li>
+        <li>
+          <a class="icon-1facebook flat-hover color-hover" href="" rel="nofollow" target="_blank"></a>
+        </li>
+      </ul>
+    </div>
+    <div class="container-fluid head-main-bot">
+      <div class="container remove-padding">
+        <div class="col-md-2 col-sm-3">
+          <a href="/index.html">
+            <img src="{% static 'img/lebanon.png' %}" alt="Stay Home Lebanon دليل خدمات و شركات و منتجات التوصيل و أون لاين في مصر.">
+          </a>
+        </div>
+        <span class="icon-5search visible-xs seach-mob-btn"></span>
+        <div class="col-md-6 col-sm-6">
+          <form method="POST" action="!">
+            <input type="text" name="search" placeholder="ما الذي تريده؟">
+            <button type="submit" name="submit" value="submit"><span class="icon-5search"></span></button>
+          </form>
+        </div>
+        <div class="col-md-4 col-sm-3"> 
+          <a href="/add.html">أضف خدمة جديدة</a>       
+            <div class="cate-drop dropdown">
+              <a href="#" class="cat-drop-btn" data-toggle="dropdown">الأقسام</a>
+              <ul class="dropdown-menu">
+                {% for item in category %}
+                  <li><a href="{% url 'categoryar' item.pk %}">{{item.category_in_Arabic}}</a></li>
+                {% endfor %}
+                <!--<li><a href="products1.html">مأكولات ومشروبات</a></li>
+                <li><a href="#">بقالة ومواد غذائية</a></li>
+                <li><a href="#">صيدليات وخدمات صحية</a></li>
+                <li><a href="#">تعليم وتدريب</a></li>
+                <li><a href="#">حيوانات أليفة</a></li>
+                <li><a href="#">تنظيف وصيانة</a></li>
+                <li><a href="#">ملابس وأحذية</a></li>
+                <li><a href="#">كتب وأدوات مكتبية</a></li>
+                <li><a href="#">ألعاب ومستلزمات أطفال</a></li>
+                <li><a href="#">إلكترونيات وإكسسواراتها</a></li>
+                <li><a href="#">أجهزة منزلية</a></li>
+                <li><a href="#">أثاث وديكورات</a></li>
+                <li><a href="#">بنوك وخدمات مالية</a></li>
+                <li><a href="#">زهور وهدايا</a></li>
+                <li><a href="#">خدمات الأعمال</a></li>
+                <li><a href="#">نقل وتوصيل</a></li>
+                <li><a href="#">خدمات متنوعة</a></li>
+                <li><a href="#">ترفيه</a></li>
+                <li><a href="#">تسوق منتجات متنوعة</a></li>
+                <li><a href="#">تاكسي ومواصلات</a></li>-->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- end header  -->
+<!-- main -->
+    <div class="container-fluid remove-padding all-body">
+      <div class="container remove-padding gategory-main comp-main">
+        <div class="col-lg-8 col-md-7 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding comp-item">
+    		    <img src="{{nitem.logo}}" alt="" />
+            <div class="col-xs-12 remove-padding comp-info">  
+              <h3>{{nitem.service_name_in_Arabic}}</h3>
+              <p>{{nitem.service_details_Arabic}}</p>
+              <h4><span class="icon-10pin"></span><a href="{% url 'categoryar' item_category.pk %}">{{item_category.category_in_Arabic}}</a></h4>
+            </div>
+            <ul>
+              <li><a href="" class="web-btn" target="_blank" rel="nofollow" ><span class="icon-8world"></span>الموقع</a></li>
+              <li><a href="" class="Facebook-btn" target="_blank" rel="nofollow" ><span class="icon-2facebook"></span>فيس بوك</a></li>
+              <li><a href="" class="Instagram-btn" target="_blank" rel="nofollow" ><span class="icon-3instagram"></span>انستاجرام</a></li>
+            </ul>
+          </div>
+        </div>    
+        <div class="col-lg-4 col-md-5 col-xs-12 col-sm-12 gat-side-bar">
+          <h2>خدمات شبيهة</h2>
+        {% for item in service_list %}
+        <div class="col-xs-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <img src="{{item.logo}}">
+              <h3>{{item.service_name_in_Arabic}}</h3>
+              <a href="{% url 'descriptionar' item.pk %}"  class="flat-hover">Details <span class="icon-9arrow"></span></a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+          <!--<div class="col-xs-12">
+             <div class="col-xs-12 remove-padding gategory-item">
+                <div class="col-xs-12 remove-padding gategory-top">
+                  <img src="">
+                  <h3>باكلاڤا للحلويات العثمانيه</h3>
+                  <a href=""  class="flat-hover">تفاصيل <span class="icon-9arrow"></span></a>
+                </div>
+             </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="col-xs-12 remove-padding gategory-item">
+              <div class="col-xs-12 remove-padding gategory-top">
+                <img src="">
+                <h3>ستاي فيت</h3>
+                <a href=""  class="flat-hover">تفاصيل <span class="icon-9arrow"></span></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12">
+            <div class="col-xs-12 remove-padding gategory-item">
+              <div class="col-xs-12 remove-padding gategory-top">
+                <img src="">
+                <h3>360Degree</h3>
+                <a href=""  class="flat-hover">تفاصيل <span class="icon-9arrow"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="col-xs-12 remove-padding gategory-item">
+              <div class="col-xs-12 remove-padding gategory-top">
+                <img src="">
+                <h3>طاسة أند جبنة</h3>
+                <a href=""  class="flat-hover">تفاصيل <span class="icon-9arrow"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="col-xs-12 remove-padding gategory-item">
+              <div class="col-xs-12 remove-padding gategory-top">
+                <img src="">
+                <h3>أسماك المحروسة</h3>
+                <a href=""  class="flat-hover">تفاصيل <span class="icon-9arrow"></span></a>
+              </div>
+            </div>
+          </div>-->
+        </div>
+      </div>
+    </div>
+<!-- end main -->
+<!-- // Footer -->
+
+    <div class="container-fluid footer-main remove-padding">
+      <div class="container remove-padding">
+<!-- 
+        <div class="col-md-3"> 
+          <img src="img/lebanon.png">
+        </div>
+        
+ -->        <div class="col-md-3 col-md-offset-3 col-xs-offset-2"> 
+          <h3>الصفحات</h3>
+          <ul>
+            <li><a href="/index.html">الرئيسية</a> </li>
+            <li><a href="/add.html">أضف خدمة جديدة</a> </li>
+            <li><a href="/about.html">عن المبادرة</a> </li>
+            <li><a href="/contact.html">اتصل بنا</a> </li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-xs-6 col-xs-offset-2">
+          <h3>اهم بنشر المبادرة:</h3>
+          <ul>
+            <li><a href="" class="icon-2facebook flat-hover" target="_blank" rel="nofollow"></a> </li>
+            <li><a href="" class="icon-12whatsapp flat-hover"></a> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <script src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".body-bg").click(function(){
+      $(".header-main .head-main-bot form").removeClass("form-open");
+      $('.body-bg').removeClass('body-overlay');
+        });
+      $(".seach-mob-btn").click(function(){
+      $(".header-main .head-main-bot form").toggleClass("form-open");
+      $(".body-bg").addClass('body-overlay')
+        });
+    });
+  </script>
+</body>
+</html>

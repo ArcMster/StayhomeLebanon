@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Stay Home Lebanon - Directory of online businesses, ecommerce stores and delivery services in Lebanon." />
+    <title>Stay Home Lebanon </title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/chosen.css' %}">
+    <link href="{% static 'css/style.css' %}"  rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link href="{% static 'css/webFont.css' %}"  rel="stylesheet">        
+    <link rel="icon" href="{% static 'img/flag-round-250.png' %}">
+  </head>
+  <body>
+    <!-- header -->
+    <div class="body-bg"></div>
+    <div class="container-fluid header-main remove-padding ">
+      <div class="container head-top">
+        <ul class="main-links">
+          <li><a href="eabout.html" class="change-lang flat-hover">About</a></li>
+          <li><a href="econtact.html" class="change-lang flat-hover">Contact Us </a></li>
+  		  </ul>
+        <ul>
+          <li>
+            <a href="index.html" class="change-lang flat-hover">الموقع العربي<img src="{% static 'img/le.jpg' %}" alt="Stay Home Lebanon">
+            </a>
+          </li>
+          <li>
+            <a class="icon-1facebook flat-hover color-hover" href="#" target="_blank"></a>
+          </li>
+        </ul>
+      </div>
+        <div class="container-fluid head-main-bot">
+          <div class="container remove-padding">
+            <div class="col-md-2 col-sm-3">
+                <a href="en.html">
+                  <img src="{% static 'img/lebanon.png' %}" alt="Stay Home Lebanon Directory of online businesses, ecommerce stores and delivery services in Lebanon.">
+                </a>
+            </div>
+            <span class="icon-5search visible-xs seach-mob-btn"></span>
+            <div class="col-md-6 col-sm-6">
+              <form method="POST" action="!">
+                <input type="text" name="search" placeholder="What do you want?">
+                <button type="submit" name="submit" value="submit"><span class="icon-5search"></span></button>
+              </form>
+            </div>
+            <div class="col-md-4 col-sm-3">
+              <a href="eadd.html">Add a Service</a> 
+              <div class="cate-drop dropdown">
+                <a href="#" class="cat-drop-btn" data-toggle="dropdown">Sections</a>
+                <ul class="dropdown-menu">
+                  {% for item in category %}
+                  <li><a href="{% url 'category' item.pk %}">{{item.category}}</a></li>
+                  {% endfor %}
+
+                  <!--<li><a href="eproducts1.html">Food and Beverage</a></li>
+                  <li><a href="#">Grocery</a></li>
+                  <li><a href="#">Health and Pharmacy</a></li>
+                  <li><a href="#">Education and Training</a></li>
+                  <li><a href="#">Pets Related</a></li>
+                  <li><a href="#">Cleaning and Services</a></li>
+                  <li><a href="#">Clothes and Shoes</a></li>
+                  <li><a href="#">Books and Stationery</a></li>
+                  <li><a href="#">Toys and Kids Supplies</a></li>
+                  <li><a href="#">Electronics and Accessories</a></li>
+                  <li><a href="#">Home Appliance</a></li>
+                  <li><a href="#">Furniture and Decor</a></li>
+                  <li><a href="#">Financial Services</a></li>
+                  <li><a href="#">Gifts and Flowers</a></li>
+                  <li><a href="#">Business Services</a></li>
+                  <li><a href="#">Moving and Delivery</a></li>
+                  <li><a href="#">Miscellaneous Services</a></li>
+                  <li><a href="#">Entertainment</a></li>
+                  <li><a href="#">Miscellaneous Shopping</a></li>
+                  <li><a href="#">Taxi and Transportation</a></li>-->
+                </ul>
+              </div>
+            </div>
+          </div>
+       </div>
+    </div>
+  <!-- end header  -->
+  <!-- main -->
+    <div class="container-fluid remove-padding all-body wow slideInLeft">
+      <div class="container remove-padding grid-main">
+        {% for item in category %}
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="{% url 'category' item.pk %}" class="flat-hover">
+              <!--<img src="img/">
+              <p>Food and Beverage</p>-->
+              <img src="{{item.thumbnail.url}}">
+              <p>{{item.category}}</p>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+        <!--<div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Grocery</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+             <a href="#" class="flat-hover">
+                <img src="img/">
+                <p>Health and Pharmacy</p>
+              </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Education and Training</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+         <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Pets Related</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Cleaning and Services</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Clothes and Shoes</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Books and Stationery</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Toys and Kids Supplies</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Electronics and Accessories</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Home Appliance</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Furniture and Decor</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+           <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Financial Services</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Gifts and Flowers</p>
+           </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Business Services</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Moving and Delivery</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Miscellaneous Services</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Entertainment</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Miscellaneous Shopping</p>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6 remove-padding grid-item">
+          <div class="col-xs-12">
+            <a href="#" class="flat-hover">
+              <img src="img/">
+              <p>Taxi and Transportation</p>
+            </a>
+          </div>
+        </div>-->
+      </div>
+  </div>
+  <!-- end main -->
+  <!--Footer -->
+  <div class="container-fluid footer-main remove-padding">
+    <div class="container remove-padding">
+
+<!-- 
+      <div class="col-md-5"> 
+        <img src="img/lebanon.png">
+      </div>
+ -->      
+      <div class="col-md-3 col-md-offset-3 col-xs-offset-2"> 
+        <h3>Pages</h3>
+        <ul>
+            <li><a href="en.html">Home</a> </li>
+            <li><a href="eadd.html">Add a Service</a> </li>
+            <li><a href="#">About</a> </li>
+            <li><a href="#">Contact Us </a> </li>
+        </ul>
+      </div>
+      <div class="col-md-4 col-xs-6 col-xs-offset-2 ">
+        <h3>Share the Initiative:</h3>
+        <ul>
+          <li><a href="#" class="icon-2facebook flat-hover" target="_blank" rel="nofollow"></a> </li>
+          <li><a href="#" class="icon-12whatsapp flat-hover"></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $(".body-bg").click(function(){
+        $(".header-main .head-main-bot form").removeClass("form-open");
+        $('.body-bg').removeClass('body-overlay');
+        });
+        $(".seach-mob-btn").click(function(){
+        $(".header-main .head-main-bot form").toggleClass("form-open");
+        $(".body-bg").addClass('body-overlay')
+        });
+  	});
+  </script>
+    <script src="js/wow.min.js"></script>
+    <script>new WOW().init();</script>
+    <script>
+      (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+
+    </script>
+</body>
+</html>

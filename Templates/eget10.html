@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="مم Mumm - Stay Home Lebanon - Directory of online businesses, ecommerce stores and delivery services in Lebanon." />
+    <title>مم Mumm - Stay Home Lebanon </title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/chosen.css' %}">
+    <link href="{% static 'css/style.css' %}"  rel="stylesheet">    
+    <link href="{% static 'css/webFont.css' %}"  rel="stylesheet">        
+    <link rel="icon" href="{% static 'img/flag-round-250.png' %}">
+  </head>
+  <body>
+  <!-- header -->
+  <div class="body-bg"></div>
+  <div class="container-fluid header-main remove-padding ">
+    <div class="container head-top">
+      <ul class="main-links">
+        <li><a href="/eabout.html" class="change-lang flat-hover">About</a></li>
+        <li><a href="/econtact.html" class="change-lang flat-hover">Contact Us </a></li>
+		  </ul>
+      <ul>
+        <li>
+          <a href="/index.html" class="change-lang flat-hover">الموقع العربي<img src="{% static 'img/le.jpg' %}" alt="Stay Home Lebanon"></a>
+        </li>
+        <li>
+          <a class="icon-1facebook flat-hover color-hover" href="" rel="nofollow" target="_blank"></a>
+        </li>
+      </ul>
+    </div>
+    <div class="container-fluid head-main-bot">
+      <div class="container remove-padding">
+        <div class="col-md-2 col-sm-3">
+          <a href="/en.html"><img src="{% static 'img/lebanon.png' %}" alt="Stay Home Lebanon Directory of online businesses, ecommerce stores and delivery services in Lebanon."></a>
+        </div>
+        <span class="icon-5search visible-xs seach-mob-btn"></span>
+        <div class="col-md-6 col-sm-6">
+          <form method="POST" action="!">
+            <input type="text" name="search" placeholder="What do you want?">
+            <button type="submit" name="submit" value="submit"><span class="icon-5search"></span></button>
+          </form>
+        </div>
+        <div class="col-md-4 col-sm-3">   
+          <a href="/eadd.html">Add a Service</a>  
+          <div class="cate-drop dropdown">
+            <a href="#" class="cat-drop-btn" data-toggle="dropdown">Sections</a>
+            <ul class="dropdown-menu">
+              {% for item in category %}
+                  <li><a href="{% url 'category' item.pk %}">{{item.category}}</a></li>
+              {% endfor %}
+              <!--<li><a href="eproducts1.html">Food and Beverage</a></li>
+              <li><a href="#">Grocery</a></li>
+              <li><a href="#">Health and Pharmacy</a></li>
+              <li><a href="#">Education and Training</a></li>
+              <li><a href="#">Pets Related</a></li>
+              <li><a href="#">Cleaning and Services</a></li>
+              <li><a href="#">Clothes and Shoes</a></li>
+              <li><a href="#">Books and Stationery</a></li>
+              <li><a href="#">Toys and Kids Supplies</a></li>
+              <li><a href="#">Electronics and Accessories</a></li>
+              <li><a href="#">Home Appliance</a></li>
+              <li><a href="#">Furniture and Decor</a></li>
+              <li><a href="#">Financial Services</a></li>
+              <li><a href="#">Gifts and Flowers</a></li>
+              <li><a href="#">Business Services</a></li>
+              <li><a href="#">Moving and Delivery</a></li>
+              <li><a href="#">Miscellaneous Services</a></li>
+              <li><a href="#">Entertainment</a></li>       
+              <li><a href="#">Miscellaneous Shopping</a></li>         
+              <li><a href="#">Taxi and Transportation</a></li>-->
+            </ul>
+          </div>   
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- end header  -->
+<!-- main -->
+  <div class="container-fluid remove-padding all-body">
+    <div class="container remove-padding gategory-main comp-main">
+      <div class="col-lg-8 col-md-7 col-xs-12 col-sm-12">
+        <div class="col-xs-12 remove-padding comp-item">		
+          <img src="{{nitem.logo}}" alt="" />
+          <div class="col-xs-12 remove-padding comp-info">
+            <h3>{{nitem.service_name}}</h3>
+            <p>{{nitem.service_details_English}}</p>
+            <h4><span class="icon-10pin"></span><a href="{% url 'category' item_category.pk %}">{{item_category.category}}</a></h4>
+          </div>
+          <ul>
+            <li><a href="" class="web-btn" target="_blank" rel="nofollow" ><span class="icon-8world"></span>Website</a></li>
+            <li><a href="" class="Facebook-btn" target="_blank" rel="nofollow" ><span class="icon-2facebook"></span>Facebook</a></li>
+            <li><a href="" class="Instagram-btn" target="_blank" rel="nofollow" ><span class="icon-3instagram"></span>Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-5 col-xs-12 col-sm-12 gat-side-bar">
+        <h2>Similar Providers</h2>
+        {% for item in service_list %}
+        <div class="col-xs-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <img src="{{item.logo}}">
+              <h3>{{item.service_name}}</h3>
+              <a href="{% url 'description' item.pk %}"  class="flat-hover">Details <span class="icon-9arrow"></span></a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <!--<div class="col-xs-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <img src="">
+              <h3>Baklava Ottoman desserts</h3>
+              <a href=""  class="flat-hover">Details <span class="icon-9arrow"></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12">
+           <div class="col-xs-12 remove-padding gategory-item">
+               <div class="col-xs-12 remove-padding gategory-top">
+              <img src="">
+              <h3>Marionette Image & Packing</h3>
+              <a href=""  class="flat-hover">Details <span class="icon-9arrow"></span></a>
+            </div>
+           </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+              <div class="col-xs-12 remove-padding gategory-top">
+              <img src="">
+              <h3>Crazy Tuna</h3>
+              <a href=""  class="flat-hover">Details <span class="icon-9arrow"></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+              <div class="col-xs-12 remove-padding gategory-top">
+              <img src="">
+              <h3>Mama Food</h3>
+              <a href=""  class="flat-hover">Details <span class="icon-9arrow"></span></a>
+            </div>
+          </div>
+        </div>-->
+      </div>
+    </div>
+  </div>
+  <!-- end main -->
+  <!-- // Footer -->
+  <div class="container-fluid footer-main remove-padding">
+    <div class="container remove-padding">
+
+<!--       
+      <div class="col-md-3"> 
+        <img src="img/lebanon.png">
+      </div>
+ -->
+      <div class="col-md-3 col-md-offset-3 col-xs-offset-2"> 
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="/en.html">Home</a> </li>
+          <li><a href="/eadd.html">Add a Service</a> </li>
+          <li><a href="/eabout.html">About</a> </li>
+          <li><a href="/econtact.html">Contact Us </a> </li>
+        </ul>
+      </div>
+      <div class="col-md-4 col-xs-6 col-xs-offset-2">
+        <h3> Share the Initiative:</h3>
+        <ul>
+          <li><a href="" class="icon-2facebook flat-hover" target="_blank" rel="nofollow"></a> </li>
+          <li><a href="" class="icon-12whatsapp flat-hover"></a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".body-bg").click(function(){
+      $(".header-main .head-main-bot form").removeClass("form-open");
+      $('.body-bg').removeClass('body-overlay');
+        });
+      $(".seach-mob-btn").click(function(){
+      $(".header-main .head-main-bot form").toggleClass("form-open");
+      $(".body-bg").addClass('body-overlay')
+      });
+  // end master 
+  	});
+  </script>
+</body>
+</html>

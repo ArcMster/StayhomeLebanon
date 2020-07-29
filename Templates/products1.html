@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="ar">
+  {% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="مأكولات ومشروبات - Stay Home Lebanon - دليل خدمات و شركات و منتجات التوصيل و أون لاين في مصر." />
+    <title>  مأكولات ومشروبات - Stay Home Lebanon </title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap-rtl.css' %}" rel="stylesheet">    
+    <link rel="stylesheet" href="{% static 'css/chosen.css' %}">
+    <link href="{% static 'css/style-rtl.css' %}"  rel="stylesheet"> 
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">       
+    <link href="{% static 'css/webFont.css' %}"  rel="stylesheet">        
+    <link rel="icon" href="{% static 'img/flag-round-250.png' %}" >
+  </head>
+  <body>
+
+  <!-- header -->
+    <div class="body-bg"></div>
+    <div class="container-fluid header-main remove-padding ">
+      <div class="container head-top">
+        <ul class="main-links">
+          <li><a href="/about.html" class="change-lang flat-hover">عن المبادرة</a></li>
+          <li><a href="/contact.html" class="change-lang flat-hover">اتصل بنا</a></li>
+		    </ul>
+        <ul>    
+          <li>
+      			<a href="/en.html" class="change-lang flat-hover">English Version<img src="{% static 'img/us.png' %}" alt="Stay Home Lebanon">
+            </a>
+          </li>
+          <li>
+            <a class="icon-1facebook flat-hover color-hover" href="#" rel="nofollow" target="_blank"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="container-fluid head-main-bot">
+        <div class="container remove-padding">
+          <div class="col-md-2 col-sm-3">
+            <a href="/index.html"><img src="{% static 'img/lebanon.png' %}" alt=""></a>
+          </div>
+          <span class="icon-5search visible-xs seach-mob-btn"></span>
+          <div class="col-md-6 col-sm-6">
+            <form method="POST" action="!">
+              <input type="text" name="search" placeholder="ما الذي تريده؟">
+              <button type="submit" name="submit" value="submit"><span class="icon-5search"></span></button>
+            </form>
+          </div>
+          <div class="col-md-4 col-sm-3">
+            <a href="/add.html">أضف خدمة جديدة</a> 
+            <div class="cate-drop dropdown">
+              <a href="#" class="cat-drop-btn" data-toggle="dropdown">الأقسام</a>
+              <ul class="dropdown-menu">
+                {% for item in category_list %}
+                  <li><a href="{% url 'categoryar' item.pk %}">{{item.category_in_Arabic}}</a></li>
+                {% endfor %}
+                <!--<li><a href="products1.html">مأكولات ومشروبات</a></li>
+                <li><a href="#">بقالة ومواد غذائية</a></li>
+                <li><a href="#">صيدليات وخدمات صحية</a></li>
+                <li><a href="#">تعليم وتدريب</a></li>
+                <li><a href="#">حيوانات أليفة</a></li>
+                <li><a href="#">تنظيف وصيانة</a></li>
+                <li><a href="#">ملابس وأحذية</a></li>
+                <li><a href="#">كتب وأدوات مكتبية</a></li>
+                <li><a href="#">ألعاب ومستلزمات أطفال</a></li>
+                <li><a href="#">إلكترونيات وإكسسواراتها</a></li>
+                <li><a href="#">أجهزة منزلية</a></li>
+                <li><a href="#">أثاث وديكورات</a></li>
+                <li><a href="#">بنوك وخدمات مالية</a></li>
+                <li><a href="#">زهور وهدايا</a></li>
+                <li><a href="#">خدمات الأعمال</a></li>
+                <li><a href="#">نقل وتوصيل</a></li>
+                <li><a href="#">خدمات متنوعة</a></li>
+                <li><a href="#">ترفيه</a></li>
+                <li><a href="#">تسوق منتجات متنوعة</a></li>
+                <li><a href="#">تاكسي ومواصلات</a></li>-->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- end header  -->
+<!-- main -->
+    <div class="container-fluid remove-padding all-body wow slideInUp">
+      <div class="container remove-padding gategory-main">
+        <h1 class="col-xs-12"><img src="{{category.thumbnail.url}}">{{category}}</h1>
+        {% for item in service_list %}
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="{% url 'descriptionar' item.pk %}"><img src="{{item.logo}}" alt=""></a>
+              <h3><a href="{% url 'descriptionar' item.pk %}">{{item.service_name_in_Arabic}}</a></h3>
+              <p>{{item.service_details_Arabic}}</p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>Website</a>
+                </li>
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-2facebook"></span>Facebook</a>
+                </li>
+                <li><a href="#" class="insta-btn" target="_blank" rel="nofollow" >
+                <span class="icon-3instagram"></span>Instagram</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <!--<div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="get10.html">مم Mumm</a></h3>
+              <p>منصة عبر الإنترنت تربط الطهاة الموهوبين في المنزل مع المهنيين الجائعين لمنحهم الوصول إلى الأطعمة الطازجة الصحية محلية الصنع.</p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                <span class="icon-8world"></span>الموقع</a>
+                </li>
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-2facebook"></span>فيس بوك</a>
+                </li>
+                <li><a href="#" class="insta-btn" target="_blank" rel="nofollow" >
+                <span class="icon-3instagram"></span>انستاجرام</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="#">اطلب Otlob</a></h3>
+              <p>هو أبسط طريقة تطلب بيها أكلك من بين أكتر من 4500 مطعم في كل مصر ….. بدأنا من 99 و قدرنا نكسب ثقة ألاف الأكيلة في مصر اللي بيعملوا الاوردر بتاعهم في أقل من 30 ثانية و بيستمتعوا كل يوم بعروض و خصومات يومية على كل المطاعم في 26 محافظة.</p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>الموقع</a>
+                </li>
+                <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-7and"></span>اندرويد</a>
+                </li>
+                <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-6apple"></span>ايفون</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="#">مطعم ماما منى</a></h3>
+              <p>مطعم ماما منى للاكل البيتى </p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>الموقع</a>
+                </li>
+                <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-12whatsapp"></span>واتس أب</a>
+                </li>
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-2facebook"></span>فيس بوك</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="#">شيكو اكل بيتى - الاسكندرية</a></h3>
+              <p>مطبخ اكل بيتى يقدم كل اصناف الطعام بأيدى خبيرة نصلك لباب البيت  داخل الأسكندرية </p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                 <span class="icon-12whatsapp"></span>واتس أب</a>
+                </li>
+      
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                <span class="icon-2facebook"></span>فيس بوك</a>
+                </li>
+                <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-11phone"></span>تليفون</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="#">Mama Food</a></h3>
+              <p>Mama food is a platform to share healthy and high quality meals cooked by housewives for customer in Mienya </p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-12whatsapp"></span>واتس أب</a>
+                </li>
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-2facebook"></span>فيس بوك</a>
+                </li>
+                <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-11phone"></span>تليفون</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="#">Ava Tech</a></h3>
+              <p>يمكنك طلب الاوردر الخاص بك من اي نوع مطعم كان اون لاين دون اتصال وبنفس سعر المطعم </p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>الموقع</a>
+                </li>
+                <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-7and"></span>اندرويد</a>
+                </li>
+                <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-6apple"></span>ايفون</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="stay/small256.jpg" alt=""></a>
+              <h3><a href="#">المنيوز elmenus</a></h3>
+              <p>أوردر أكلك أون لاين وشوف منيوهات المطاعم.</p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>الموقع</a>
+                </li>
+                <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-7and"></span>اندرويد</a>
+                </li>
+                <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-6apple"></span>ايفون</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="#">360Degree</a></h3>
+              <p>First App in Lebanon that customize your healthy diet lifestyle on a medical basis with a friendly and easy user experience. Download it now!</p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>الموقع</a>
+                </li>
+                <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-7and"></span>اندرويد</a>
+                </li>
+                <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-12whatsapp"></span>واتس أب</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt="McDonald's delivery"></a>
+              <h3><a href="#">McDonald's</a></h3>
+              <p>McDonald's delivery</p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>الموقع</a>
+                </li>
+                <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-7and"></span>اندرويد</a>
+                </li>
+                <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-6apple"></span>ايفون</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt="">
+              </a>
+              <h3><a href="#">مطعم جنابو - مندي ومشوي</a></h3>
+              <p>أحنا في مطعم جنابو متخصصين في عمل المندي والمشوي والكبسة البرياني انتاج يومي والتسوية الصحية ونحن نقوم بتوريد وتجهيزالحفلات والعزائم وايضا بعمل التسويات المختلفه لجميع أنواع الفراخ واللحوم مع الأرز والسلطات الطازجة المتنوعه. 
+              ارقام التليفون للطلبات والتواصل : 01028792014 - 0115443663 - 01554619912
+              </p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-2facebook"></span>فيس بوك</a>
+                </li>
+                <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-11phone"></span>تليفون</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt="">
+              </a>
+              <h3><a href="#">Crazy Tuna</a></h3>
+              <p>نقدم لحم التونة في اشكال مختلفة....ني...متبل جاهز للشوي.... مستوي علي البخار جاهز للاكل 
+              التونة من مصر غير مستوردة... ومغلقة بتقنية الفاكيوم</p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>الموقع</a>
+                </li>
+                <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-12whatsapp"></span>واتس أب</a>
+                </li>
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-2facebook"></span>فيس بوك</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt="">
+              </a>
+              <h3><a href="#">شركة R.M لتوريد المواد الغذائية</a></h3>
+              <p>تجارة وتوريد المواد الغذائية 
+            دواجن 
+            بط 
+            رومي 
+            سمان 
+            حمام 
+            عسل نحل 
+            بيض </p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>الموقع</a>
+                </li>
+                <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-12whatsapp"></span>واتس أب</a>
+                </li>
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-2facebook"></span>فيس بوك</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="get488.html">V-licious</a></h3>
+              <p>أكل مغذي</p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>الموقع</a>
+                </li>
+                <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-12whatsapp"></span>واتس أب</a>
+                </li>
+      
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-2facebook"></span>فيس بوك</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt="">
+              </a>
+              <h3><a href="#">شهبندر للدواجن الطازجة</a></h3>
+              <p>بيع جميع انواع الدواجن الفريش 
+              والتوصيل لجميع مناطق الاسكندرية عدا (العامرية - برج العرب - العجمي )
+              </p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-12whatsapp"></span>واتس أب</a>
+                </li>
+                <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-2facebook"></span>فيس بوك</a>
+                </li>
+                <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-11phone"></span>تليفون</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="#">Bites</a></h3>
+              <p>اطلب كل احتياجاتك من بقالة ومواد غذائية ومطاعم وإنت مطمن </p>
+            </div>
+            <div class="col-xs-12 remove-padding">
+              <ul>
+                <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-8world"></span>الموقع</a>
+                </li>
+      
+                <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-7and"></span>اندرويد</a>
+                </li>
+                <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+                  <span class="icon-6apple"></span>ايفون</a>
+                </li>
+                </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-12 col-sm-12">
+          <div class="col-xs-12 remove-padding gategory-item">
+            <div class="col-xs-12 remove-padding gategory-top">
+              <a href="#"><img src="img/" alt=""></a>
+              <h3><a href="get507.html">تشيك إن</a></h3>
+              <p>تشيك إن بيقدم اختيارات من أطعم وجبات فراخ مشوية. بنوصل للتجمع و مصر الجديدة </p>
+            </div>
+          <div class="col-xs-12 remove-padding">
+          <ul>
+            <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+            <span class="icon-2facebook"></span>فيس بوك</a>
+            </li>
+            <li><a href="#" class="insta-btn" target="_blank" rel="nofollow" >
+              <span class="icon-3instagram"></span>انستاجرام</a>
+            </li>
+            <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+              <span class="icon-11phone"></span>تليفون</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-xs-12 col-sm-12">
+      <div class="col-xs-12 remove-padding gategory-item">
+        <div class="col-xs-12 remove-padding gategory-top">
+          <a href="#"><img src="img/" alt=""></a>
+          <h3><a href="#">ماريونت للتغليف و الطباعة</a></h3>
+          <p>شركة و مطبعة ماريونت متخصصة في جميع انواع التغليف الخاص بالمطاعم و الكافيهات</p>
+        </div>
+        <div class="col-xs-12 remove-padding">
+          <ul>
+            <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+            <span class="icon-8world"></span>الموقع</a>
+            </li>
+            <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+              <span class="icon-12whatsapp"></span>واتس أب</a>
+            </li>
+            <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+            <span class="icon-2facebook"></span>فيس بوك</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-xs-12 col-sm-12">
+      <div class="col-xs-12 remove-padding gategory-item">
+        <div class="col-xs-12 remove-padding gategory-top">
+          <a href="#"><img src="img/" alt=""></a>
+          <h3><a href="#">تروبيتكا</a></h3>
+          <p>أكل شرقي بجودة متتوصفش جميع اللحوم التي نستخدمها بلدي و يتم اعدادها داخل مطابخنا</p>
+        </div>
+        <div class="col-xs-12 remove-padding">
+          <ul>
+            <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+            <span class="icon-12whatsapp"></span>واتس أب</a>
+            </li>
+            <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+            <span class="icon-2facebook"></span>فيس بوك</a>
+            </li>
+      
+            <li><a href="#" class="insta-btn" target="_blank" rel="nofollow" >
+              <span class="icon-3instagram"></span>انستاجرام</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-xs-12 col-sm-12">
+      <div class="col-xs-12 remove-padding gategory-item">
+        <div class="col-xs-12 remove-padding gategory-top">
+          <a href="#"><img src="img/" alt=""></a>
+          <h3><a href="#">أكلني</a></h3>
+          <p>خدمة لطلب الطعام أونلاين و التوصيل من اكثر من 1800 مطعم في 11 مدينة في مصر, بعروض و خصومات يومية.</p>
+        </div>
+        <div class="col-xs-12 remove-padding">
+          <ul>
+            <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+              <span class="icon-8world"></span>الموقع</a>
+            </li>
+      
+            <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+              <span class="icon-7and"></span>اندرويد</a>
+            </li>
+            <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+              <span class="icon-6apple"></span>ايفون</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-xs-12 col-sm-12">
+      <div class="col-xs-12 remove-padding gategory-item">
+        <div class="col-xs-12 remove-padding gategory-top">
+          <a href="#">
+            <img src="img/" alt="">
+          </a>
+          <h3><a href="#">اوبر ايتس</a></h3>
+          <p>تصلك الوجبات من المطاعم مباشرةً
+
+          هل تشعر بالجوع؟ احصل على الطعام الذي تريده، من المطاعم التي تحبها، وبسرعة أوبر المعهودة.
+
+          تناول طعامك المُفضّل في أي مكان وفي أي وقت. استمتع بالأطباق المحلية التي تشتاق إلى تذوقها بضغطة زر. 
+
+          استعرض المطاعم المحلية والأطعمة السريعة المُفضّلة واختر منها بسهولة. أو اعثر على مطعم معين من خلال البحث عنه ضمن التطبيق. يمكنك اختيار البيتزا، أو شطائر البوريتو، أو البرغر، أو السوشي. إذا كنت تتوق لأيٍّ من هذه الأكلات، فجرّب Uber Eats.
+
+          عندما تكون جاهزاً للطلب، ستتمكن من الاطلاع على عنوان التوصيل الخاص بك، ووقت التوصيل المُقدّر، وإجمالي السعر متضمناً الضرائب ورسوم التوصيل. اضغط لتدفع بسهولة باستخدام حساب أوبر أو أضف بطاقة ائتمان. تتبع طلبك لحظة بلحظة وهو في طريقه إليك.
+
+          Uber Eats متاح حالياً في عدد من المدن والمناطق الحضرية، مثل أبو ظبي وأديلايد وأمستردام وأتلانتا وأوكلاند وأوستن وبالتيمور وبوغوتا وبريسبان وبروكسل وكيب تاون وشيكاغو ودالاس ودنفر ودبي وهونغ كونغ وجوهانسبرغ وغلاسكو وليفربول ولندن ولوس أنجلوس ومدريد وملبورن ومكسيكو سيتي وميامي وميلان وموسكو ومومباي وناشفيل ونيودلهي ونيو أورليانز ونيويورك وأوتاوا وباريس وفيلادلفيا وريو دي جانيرو وسان دييجو وسان فرانسيسكو وساو باولو وسياتل وستوكهولم وسيدني وتايبيه وطوكيو وتورونتو وفيينا ووارسو وواشنطن العاصمة. 
+
+          يساعدك Uber Eats في العثور على خدمة لتوصيل الطعام حول العالم. يمكنك طلب خدمة توصيل الطعام في أستراليا وبلجيكا والبرازيل وكندا وكولومبيا وفرنسا واليابان والهن  والمكسيك ونيوزيلندا وبولندا وروسيا وجنوب أفريقيا وإسبانيا وتايوان وتايلاند والإمارات العربية المتحدة والمملكة المتحدة والولايات المتحدة وغيرها.
+
+          هل الخدمة غير متوفرة في مدينتك بعد؟ نأمل أن نقدمها إليك قريباً؟ انقر على https://about.UberEats.com/cities/ للاطلاع على قائمة حالية بجميع المُدن التي نُقدم الخدمة فيها.
+          </p>
+        </div>
+        <div class="col-xs-12 remove-padding">
+          <ul>
+            <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+              <span class="icon-8world"></span>الموقع</a>
+            </li>
+            <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+              <span class="icon-7and"></span>اندرويد</a>
+            </li>
+            <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+              <span class="icon-6apple"></span>ايفون</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-xs-12 col-sm-12">
+      <div class="col-xs-12 remove-padding gategory-item">
+        <div class="col-xs-12 remove-padding gategory-top">
+          <a href="#"><img src="img/" alt=""></a>
+          <h3><a href="#">كافيين</a></h3>
+          <p>مقهى متخصص يقدم مجموعة واسعة من القهوة الذواقة والحلوى المشهورة عالمياً.
+          كما نقوم ببيع أنواع متعددة من القهوة بأوزان مختلفة و نقوم بالتوصيل للمنزل.</p>
+        </div>
+        <div class="col-xs-12 remove-padding">
+          <ul>
+            <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+              <span class="icon-12whatsapp"></span>واتس أب</a>
+            </li>
+      
+            <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+              <span class="icon-2facebook"></span>فيس بوك</a>
+            </li>
+      
+            <li><a href="#" class="insta-btn" target="_blank" rel="nofollow" >
+              <span class="icon-3instagram"></span>انستاجرام</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-xs-12 col-sm-12">
+      <div class="col-xs-12 remove-padding gategory-item">
+        <div class="col-xs-12 remove-padding gategory-top">
+          <a href="#"><img src="img/" alt=""></a>
+          <h3><a href="#">باكلاڤا للحلويات العثمانيه</a></h3>
+          <p>حلويات عثمانية شرقية</p>
+        </div>
+        <div class="col-xs-12 remove-padding">
+          <ul>
+            <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+              <span class="icon-2facebook"></span>فيس بوك</a>
+            </li>
+            <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+              <span class="icon-11phone"></span>تليفون</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-xs-12 col-sm-12">
+      <div class="col-xs-12 remove-padding gategory-item">
+        <div class="col-xs-12 remove-padding gategory-top">
+          <a href="#"><img src="img/" alt=""></a>
+          <h3><a href="#">مطعم جاست كبدة</a></h3>
+          <p>عمل وتقديم وجبات لحوم و فراخ و أسماك </p>
+        </div>
+        <div class="col-xs-12 remove-padding">
+          <ul>
+            <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+              <span class="icon-8world"></span>الموقع</a>
+            </li>
+            <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+              <span class="icon-12whatsapp"></span>واتس أب</a>
+            </li>
+            <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+              <span class="icon-2facebook"></span>فيس بوك</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-xs-12 col-sm-12">
+      <div class="col-xs-12 remove-padding gategory-item">
+        <div class="col-xs-12 remove-padding gategory-top">
+          <a href="#"><img src="img/" alt=""></a>
+          <h3><a href="#">أسماك المحروسة</a></h3>
+          <p>مطعم وسوق سمك متكامل متخصص في بيع الأسماك الطازجة عالية الجودة من البحر الأحمر وقناة السويس والبحر الأبيض المتوسط بالاضافة الي بعض الأسماك المستوردة مثل سمك السالمون، متواجدون في محافظة السويس ونقدم خدمة توصيل الطلبات داخل السويس وخارجها.</p>
+        </div>
+        <div class="col-xs-12 remove-padding">
+          <ul>
+            <li><a href="#" class="whats-btn" target="_blank" rel="nofollow" >
+              <span class="icon-12whatsapp"></span>واتس أب</a>
+            </li>
+            <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+              <span class="icon-2facebook"></span>فيس بوك</a>
+            </li>
+            <li><a href="#" class="call-btn" target="_blank" rel="nofollow" >
+              <span class="icon-11phone"></span>تليفون</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-xs-12 col-sm-12">
+      <div class="col-xs-12 remove-padding gategory-item">
+        <div class="col-xs-12 remove-padding gategory-top">
+          <a href="#"><img src="img/" alt=""></a>
+          <h3><a href="#">طاسة أند جبنة</a></h3>
+          <p>أكل شرقي.. بطعم شبابي..
+          ملوك الجبنة </p>
+        </div>
+        <div class="col-xs-12 remove-padding">
+          <ul>
+            <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+              <span class="icon-8world"></span>الموقع</a>
+            </li>
+            <li><a href="#" class="face-btn" target="_blank" rel="nofollow" >
+              <span class="icon-2facebook"></span>فيس بوك</a>
+            </li>
+            <li><a href="#" class="insta-btn" target="_blank" rel="nofollow" >
+              <span class="icon-3instagram"></span>انستاجرام</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+      <div class="col-md-4 col-xs-12 col-sm-12">
+        <div class="col-xs-12 remove-padding gategory-item">
+          <div class="col-xs-12 remove-padding gategory-top">
+            <a href="#"><img src="img/" alt=""></a>
+            <h3><a href="#">ستاي فيت</a></h3>
+            <p>تتخصص ستاي فيت في توفير طعام صحي و شهي من خلال أنظمة اشتراك لمدد معينة على أن يصل الطعام إلى العميل طازج يوميًا</p>
+          </div>
+          <div class="col-xs-12 remove-padding">
+            <ul>
+              <li><a href="#" class="web-btn" target="_blank" rel="nofollow" >
+              <span class="icon-8world"></span>الموقع</a>
+              </li>
+              <li><a href="#" class="android-btn" target="_blank" rel="nofollow" >
+                <span class="icon-7and"></span>اندرويد</a>
+              </li>
+              <li><a href="#" class="apple-btn" target="_blank" rel="nofollow" >
+                <span class="icon-6apple"></span>ايفون</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>-->
+    </div>
+  </div>
+  <!-- end main -->
+
+  <!--  Footer -->
+
+  <div class="container-fluid footer-main remove-padding">
+    <div class="container remove-padding">
+<!-- 
+      <div class="col-md-5"> 
+        <img src="img/lebanon.png">
+      </div>
+ -->
+
+      <div class="col-md-3 col-md-offset-3 col-xs-offset-2"> 
+        <h3>الصفحات</h3>
+        <ul>
+          <li><a href="/index.html">الرئيسية</a> </li>
+          <li><a href="/add.html">أضف خدمة جديدة</a> </li>
+          <li><a href="/about.html">عن المبادرة</a> </li>
+          <li><a href="/contact.html">اتصل بنا</a> </li>
+        </ul>
+      </div>
+      <div class="col-md-4 col-xs-6 col-xs-offset-2">
+        <h3>
+       ساهم بنشر المبادرة:</h3>
+        <ul>
+          <li><a href="#" class="icon-2facebook flat-hover" target="_blank" rel="nofollow"></a> </li>
+          <li><a href="#" class="icon-12whatsapp flat-hover"></a></li>
+        </ul>
+      </div>
+      <script src="{% static 'js/jquery-1.11.2.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.js' %}"></script>
+      <script type="text/javascript">
+
+      $(document).ready(function() {
+            $(".body-bg").click(function(){
+            $(".header-main .head-main-bot form").removeClass("form-open");
+            $('.body-bg').removeClass('body-overlay');
+            });
+            $(".seach-mob-btn").click(function(){
+            $(".header-main .head-main-bot form").toggleClass("form-open");
+            $(".body-bg").addClass('body-overlay')
+          });
+      	});
+      </script>
+      <script src="{% static 'js/wow.min.js' %}"></script>
+      <script>new WOW().init();</script>
+      <script>
+        (function() {
+          'use strict';
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+      </script>
+  </body>
+</html>
