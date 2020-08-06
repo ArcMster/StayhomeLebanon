@@ -41,7 +41,8 @@
           </div>
           <span class="icon-5search visible-xs seach-mob-btn" ></span>
           <div class="col-md-6 col-sm-6">
-            <form method="POST" action="!">
+            <form method="POST" action="/searchar">
+              {% csrf_token %}
               <input type="text" name="search" placeholder="ما الذي تريده؟">
                 <button type="submit" name="submit" value="submit"><span class="icon-5search"></span></button>
             </form>
@@ -86,7 +87,8 @@
       <div class="container remove-padding form-main">
         <h1 class="col-xs-12">اتصل بنا</h1>
         <div class="col-md-10 col-md-offset-1 col-xs-12 col-sm-12 remove-padding">
-          <p style="margin: 10px">إذا كان تواصلك بخصوص عدم ظهور خدمة قمت بإضافتها فنرجو أن تعطي الأمر بعض الوقت نظرا لكثرة الإضافات اليومية التي نحاول التعامل معها ومراجعتها أولا بأول. <br /></p>
+          <p style="margin: 10px"><p>{{message}}</p>
+            إذا كان تواصلك بخصوص عدم ظهور خدمة قمت بإضافتها فنرجو أن تعطي الأمر بعض الوقت نظرا لكثرة الإضافات اليومية التي نحاول التعامل معها ومراجعتها أولا بأول. <br /></p>
           <form action="messagear" method="post">
             {% csrf_token %}
             <div class="col-xs-12 input-item">

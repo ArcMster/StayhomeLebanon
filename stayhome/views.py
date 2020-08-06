@@ -12,21 +12,87 @@ def home(request):
     
     #return render(request,'home.html', {'category': category})
     return render(request,'en.html', {'category': category})
+
+def search(request):
+    search = request.POST['search']
+    services = Service.objects.all()
+    category = Category.objects.all()
+    service_list = []
+    for i in services:
+        service_name = i.service_name
+        service_name = service_name.lower()
+        service_name_in_Arabic = i.service_name_in_Arabic
+        service_name_in_Arabic = service_name_in_Arabic.lower()
+        if search.lower() in service_name or search.lower() in service_name_in_Arabic:
+            #result = i.pk
+            service_list.append(i)
+
+            
+            #path = 'description/' + str(i.pk)
+            #return redirect(path)
+    return render(request,'esearch.html',{'service_list': service_list,'search':search, 'category_list':category})
+    '''
+    for i in category:
+        category_english = i.category
+        category_english = category_english.lower()
+        category_arabic = i.category_in_Arabic
+        category_arabic = category_arabic.lower()
+        if search.lower() in category_english or search.lower() in category_arabic:
+            result = i.pk
+            path = 'category/' + str(i.pk)
+            return redirect(path)
+
+    
+    return redirect('en.html')'''
+
+
+
+def searchar(request):
+    search = request.POST['search']
+    services = Service.objects.all()
+    category = Category.objects.all()
+    service_list = []
+    for i in services:
+        service_name = i.service_name
+        service_name = service_name.lower()
+        service_name_in_Arabic = i.service_name_in_Arabic
+        service_name_in_Arabic = service_name_in_Arabic.lower()
+        if search.lower() in service_name or search.lower() in service_name_in_Arabic:
+            '''result = i.pk
+            path = 'descriptionar/' + str(i.pk)
+            return redirect(path)'''
+            service_list.append(i)
+    return render(request,'search.html',{'service_list': service_list,'search':search, 'category_list':category})
+    '''
+    for i in category:
+        category_english = i.category
+        category_english = category_english.lower()
+        category_arabic = i.category_in_Arabic
+        category_arabic = category_arabic.lower()
+        if category_english == search.lower() or category_arabic == search.lower():
+            result = i.pk
+            path = 'categoryar/' + str(i.pk)
+            return redirect(path)
+
+    
+    return redirect('index.html')'''
     
 
 def category(request,pk):
     category = 'abcd'
     cat = Category.objects.all()
+    catitems = Category.objects.filter(id = pk)
+    category = catitems[0]
     for i in cat:
         
         if str(i.pk) == str(pk):
             
-            category = i.category
+            ccategory = i.category
             break
     services = Service.objects.all()
     service_list = []
     for i in services:
-        if str(i.category) == category:
+        if str(i.category) == ccategory:
             service_list.append(i)
     print('service list: ',service_list)
     
@@ -191,8 +257,9 @@ def add_service(request):
     for i in email_list:
         sendemail(subject,body,i.email)
 
-
-    return redirect('en.html')
+    category = Category.objects.all()
+    return render(request,'eadd.html', {'category': category, 'message': "Your service/product has been added. Have a nice day !"})
+    #return redirect('en.html')
     #return HttpResponse(category)
 
 
@@ -217,8 +284,11 @@ def usercontact(request):
     for i in email_list:
         sendemail(subject,body,i.email)
     
+    category = Category.objects.all()
+    return render(request,'econtact.html', {'category': category,'message':'Thanks for your feedback/suggestions. Have a nice day !'})
+    
 
-    return redirect('en.html')
+    #return redirect('en.html')
 
 
 "==================Arabic Version ==================="
@@ -234,16 +304,18 @@ def index(request):
 def categoryar(request,pk):
     category = 'abcd'
     cat = Category.objects.all()
+    catitems = Category.objects.filter(id = pk)
+    category = catitems[0]
     for i in cat:
         
         if str(i.pk) == str(pk):
-            
-            category = i.category
+            ccategory = i.category
+            #category = i.category_in_Arabic
             break
     services = Service.objects.all()
     service_list = []
     for i in services:
-        if str(i.category) == category:
+        if str(i.category) == ccategory:
             service_list.append(i)
     print('service list: ',service_list)
     
@@ -364,7 +436,8 @@ def add_servicear(request):
     for i in email_list:
         sendemail(subject,body,i.email)
 
-
+    category = Category.objects.all()
+    return render(request,'add.html', {'category': category, 'message': "Your service/product has been added. Have a nice day !"})
     return redirect('index.html')
 
 
@@ -387,6 +460,9 @@ def usercontactar(request):
     email_list = Email_list.objects.all()
     for i in email_list:
         sendemail(subject,body,i.email)
+    
+    category = Category.objects.all()
+    return render(request,'contact.html', {'category': category,'message':'Thanks for your feedback/suggestions. Have a nice day !'})
     
 
     return redirect('index.html')

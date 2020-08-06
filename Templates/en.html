@@ -41,7 +41,8 @@
             </div>
             <span class="icon-5search visible-xs seach-mob-btn"></span>
             <div class="col-md-6 col-sm-6">
-              <form method="POST" action="!">
+              <form method="POST" action="/search">
+                {% csrf_token %}
                 <input type="text" name="search" placeholder="What do you want?">
                 <button type="submit" name="submit" value="submit"><span class="icon-5search"></span></button>
               </form>

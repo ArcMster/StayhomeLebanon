@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Food and Beverage - Stay Home Lebanon - Directory of online businesses, ecommerce stores and delivery services in Lebanon." />
-    <title>{{category.category}} - Stay Home Lebanon</title>
+    <title>{{search}} - Stay Home Lebanon</title>
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/chosen.css' %}">
     <link href="{% static 'css/style.css' %}"  rel="stylesheet">
@@ -89,7 +89,7 @@
             <div class="col-xs-12 remove-padding gategory-top" style="padding-bottom: 5px;">
               <a href="{% url 'description' item.pk %}"><img src="{{item.logo}}" alt=""></a>
               <h3><a href="{% url 'description' item.pk %}">{{item.service_name}}</a></h3>
-              <p>{{item.service_details_English}} </p>
+              <p>{{item.service_details_English}}</p>
             </div>
             <div class="col-xs-12 remove-padding">
               <ul>

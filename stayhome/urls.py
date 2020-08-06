@@ -35,7 +35,9 @@ urlpatterns = [
     path('add_service', views.add_service, name = "add_service"),
     path('add_servicear', views.add_servicear, name = "add_servicear"),
     path('message', views.usercontact, name = "usercontact"),
-    path('messagear', views.usercontactar, name = "usercontactar")
+    path('messagear', views.usercontactar, name = "usercontactar"),
+    path('search',views.search, name = 'search'),
+    path('searchar', views.searchar, name = 'searchar')
     
 
 ]

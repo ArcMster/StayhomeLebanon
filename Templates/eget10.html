@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="مم Mumm - Stay Home Lebanon - Directory of online businesses, ecommerce stores and delivery services in Lebanon." />
-    <title>مم Mumm - Stay Home Lebanon </title>
+    <title>{{nitem.service_name}} - Stay Home Lebanon </title>
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/chosen.css' %}">
     <link href="{% static 'css/style.css' %}"  rel="stylesheet">    
@@ -38,7 +38,8 @@
         </div>
         <span class="icon-5search visible-xs seach-mob-btn"></span>
         <div class="col-md-6 col-sm-6">
-          <form method="POST" action="!">
+          <form method="POST" action="/search">
+            {% csrf_token %}
             <input type="text" name="search" placeholder="What do you want?">
             <button type="submit" name="submit" value="submit"><span class="icon-5search"></span></button>
           </form>
@@ -90,9 +91,22 @@
             <h4><span class="icon-10pin"></span><a href="{% url 'category' item_category.pk %}">{{item_category.category}}</a></h4>
           </div>
           <ul>
-            <li><a href="" class="web-btn" target="_blank" rel="nofollow" ><span class="icon-8world"></span>Website</a></li>
-            <li><a href="" class="Facebook-btn" target="_blank" rel="nofollow" ><span class="icon-2facebook"></span>Facebook</a></li>
-            <li><a href="" class="Instagram-btn" target="_blank" rel="nofollow" ><span class="icon-3instagram"></span>Instagram</a></li>
+            <li><a href="{{nitem.website}}" class="web-btn" target="_blank" rel="nofollow" ><span class="icon-8world"></span>Website</a></li>
+            {% if nitem.android %}
+            <li><a href="{{nitem.android}}" class="android-btn" target="_blank" rel="nofollow" ><span class="icon-7and"></span>Android</a></li>
+            {% elif nitem.facebook %}
+            <li><a href="{{nitem.facebook}}" class="Facebook-btn" target="_blank" rel="nofollow" ><span class="icon-2facebook"></span>Facebook</a></li>
+            {% elif nitem.whatsapp %}
+            <li><a href="{{nitem.whatsapp}}" class="whats-btn" target="_blank" rel="nofollow" ><span class="icon-12whatsapp"></span>Whatsapp</a></li>
+            {% endif %}
+
+            {% if nitem.iphone %}
+            <li><a href="{{nitem.iphone}}" class="apple-btn" target="_blank" rel="nofollow" ><span class="icon-6apple"></span>Instagram</a></li>
+            {% elif nitem.instagram %}
+            <li><a href="{{nitem.instagram}}" class="insta-btn" target="_blank" rel="nofollow" ><span class="icon-3instagram"></span>Facebook</a></li>
+            {% elif nitem.phone %}
+            <li><a href="{{nitem.phone}}" class="call-btn" target="_blank" rel="nofollow" ><span class="icon-11phone"></span>Facebook</a></li>
+            {% endif %}
           </ul>
         </div>
       </div>
